@@ -34,5 +34,21 @@ namespace Full_GRASP_And_SOLID.Library
                     $"usando '{step.Equipment.Description}' durante {step.Time}");
             }
         }
+             public double GetProductionCost(){ 
+                double costoinsumos = 0;
+                double costoequipamiento = 0;
+
+                foreach (Step step in this.steps){
+                    costoinsumos += step.Quantity;
+                    costoequipamiento += step.Time * step.Equipment.HourlyCost;
+
+                }
+
+                return costoinsumos + costoequipamiento;
+
+            }
     }
-}
+            
+}   
+
+//  patros expert y principio SRP
